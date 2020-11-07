@@ -9,10 +9,11 @@ class CashRegister
         @items = []
     end
 
-    def add_item(title, price, quantity = 0)
-        @items << title
+    def add_item(title, price, quantity = 1)
+        #@items << title
         if quantity > 0
             self.total += (price * quantity)
+            quantity.times { @items << title }
         else
             self.total += price
         end
@@ -29,7 +30,10 @@ class CashRegister
 
     def items
         return @items    
-    
+    end
+
+    def void_last_transaction
+        
     end
    
 end
